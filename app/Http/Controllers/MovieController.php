@@ -114,4 +114,12 @@ class MovieController extends Controller
         return to_route('movies.index')
             ->withSuccess('Data berhasil diubah');
     }
+    
+    public function destroy(Movie $movie)
+{
+    $movie->delete();
+
+    return to_route('movies.index')
+        ->withSuccess('Data berhasil dihapus');
+}
 }

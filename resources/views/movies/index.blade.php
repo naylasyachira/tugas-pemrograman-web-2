@@ -24,21 +24,33 @@
                 <th>Year</th>
                 <th>Rating</th>
                 <th>Description</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($movies as $movie)
                 <tr>
                     <td>
-                        <a href="/movies/{{ $movie->id }}/edit" class="btn btn-warning btn-sm">
-                            Edit
-                        </a>
                     </td>
                     <td>{{ $movie->title }}</td>
                     <td>{{ $movie->genre }}</td>
                     <td>{{ $movie->release_year }}</td>
                     <td>{{ $movie->rating }}</td>
                     <td>{{ $movie->description }}</td>
+                    <td>
+                        <a href="{{ route('movies.edit', $movie) }}" class="btn btn-warning btn-sm mb-3">
+                            Edit
+                        </a>
+
+                        <form action="{{ route('movies.destroy', $movie) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+
+                            <button class="btn btn-danger btn-sm" onclick="return confirm('Anda Yakin mau hapus?')">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
