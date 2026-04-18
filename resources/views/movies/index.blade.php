@@ -3,6 +3,10 @@
 @section('content')
     <h2 class="mb-4">Daftar Movie</h2>
 
+    <a href="/movies/create" class="btn btn-success mb-3">
+        + Tambah Movie
+    </a>
+
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
             <tr>
