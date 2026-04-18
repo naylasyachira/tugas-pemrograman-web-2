@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/test',function(){
-    return view('test.index');
-});
+use App\Http\Controllers\MovieController;
+
+Route::get('/', [MovieController::class, 'index']);
+Route::get('/movies', [MovieController::class, 'index']);
